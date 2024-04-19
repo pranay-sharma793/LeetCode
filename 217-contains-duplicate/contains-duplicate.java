@@ -1,6 +1,7 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
 
+        //HashSet<> gives a slight better run time than Set<>
         HashSet<Integer> hr = new HashSet<>();
 
         for(int n : nums){
