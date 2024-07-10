@@ -12,6 +12,7 @@ class Solution {
 
         sum2 = sum2 + n;
 
+        System.gc();
         return sum2 - sum1;
     }
 }
