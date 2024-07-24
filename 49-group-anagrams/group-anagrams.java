@@ -24,8 +24,6 @@ class Solution {
             
         }
 
-        System.gc();
-
         return new ArrayList<>(map.values());
 
     }
