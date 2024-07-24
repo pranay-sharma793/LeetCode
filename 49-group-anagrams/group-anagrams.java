@@ -6,6 +6,9 @@ class Solution {
     For each string the function get the freq and check if such key exist if not it defaults to a empty list.
 
     Learning: map.getOrDefault, String as key better than List<String>, StringBuiler
+
+    Time Complexity: O(m.n) (m - Size of string[], n - length of each string, *26 - travesal for freq)
+    Space Complexity: O(m)
     */
 
     public List<List<String>> groupAnagrams(String[] strs) {
