@@ -7,10 +7,10 @@ class Solution {
 
             // List<Integer> sFreq = getFreq(s);
             String sFreq = getFreq(s);
-            List<String> tmp = new ArrayList<>();
+            List<String> tmp = map.getOrDefault(sFreq, new ArrayList<>());
 
-            if(map.containsKey(sFreq))
-                tmp = map.get(sFreq);
+            // if(map.containsKey(sFreq))
+            //     tmp = map.get(sFreq);
             tmp.add(s);
             map.put(sFreq, tmp);
             
