@@ -1,11 +1,19 @@
 class Solution {
+    /*
+    In this solution we use the string frequency function to check anagrams,
+    Map w/ key string and list of string is set. 
+    We have a function (since all lower case) using 26 len int array to change the value of char value in the string each char. Then that is changed into a single string using StringBuilder (eg.: a1b2t1) which is used as the Key value. 
+    For each string the function get the freq and check if such key exist if not it defaults to a empty list.
+
+    Learning: map.getOrDefault, String as key better than List<String>, StringBuiler
+    */
+
     public List<List<String>> groupAnagrams(String[] strs) {
         
         Map<String, List<String>> map = new HashMap<>();
 
         for(String s : strs){
 
-            // List<Integer> sFreq = getFreq(s);
             String sFreq = getFreq(s);
             List<String> tmp = map.getOrDefault(sFreq, new ArrayList<>());
 
