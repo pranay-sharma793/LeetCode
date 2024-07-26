@@ -2,7 +2,12 @@ class Solution {
 
     /*
     Trick: check zeros, if yes everything else 0.
-    left multiple and right multiple and ans is the final sum
+    left multiple and right multiple and ans is the final product of both the two arrays.
+
+    New approach: Not using the pre post arrays, we save the pre in ans and traverese backwards and keep a value 'post' storing the post product and multiplying it to the ans array.
+    Pre is first stored in ans, post is set to 1, updated with product of post and next value.
+
+    Learning: Product of array, traversal of array
 
 
     */
