@@ -26,13 +26,7 @@ class Solution {
 
             lProd[i] = nums[i-1]*lProd[i-1];
             rProd[n-i-1] = nums[n-i]*rProd[n-i];
-        }
-
-        // if(hasZero == 2){
-        //     return new int[n];
-        // } else if(hasZero == 1){
-            
-        // }
+        } 
 
         int[] ans = new int[n];
         for(int i =0; i < nums.length; i++){
