@@ -7,7 +7,7 @@ class Solution {
     New approach: Not using the pre post arrays, we save the pre in ans and traverese backwards and keep a value 'post' storing the post product and multiplying it to the ans array.
     Pre is first stored in ans, post is set to 1, updated with product of post and next value.
 
-    Learning: Product of array, traversal of array
+    Learning: Product of array, traversal of array, returned array does not count in the space complexity.
 
 
     */
@@ -20,8 +20,7 @@ class Solution {
         // lProd[0] = rProd[n-1] = 1;
 
         int[] ans = new int[n];
-        ans[0] = 1;
-        int post = 1;
+        int post = ans[0] = 1;
 
 
         for(int i=1; i < n; i++){
