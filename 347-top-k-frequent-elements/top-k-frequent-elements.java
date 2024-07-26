@@ -5,6 +5,8 @@ class Solution {
 
     Learnings: Extracting map values in an list, collections sort on a list and reverse, creating subList, 
     using list contains.
+
+    Alternative solutions: priority queue, bucket sort, min/max heap
     */
 
 
@@ -16,8 +18,7 @@ class Solution {
 
 
         for(int i : nums){
-            int tmp =map.getOrDefault(i, 0);
-            map.put(i, tmp+1);
+            map.put(i , map.getOrDefault(i, 0) + 1);
         }
 
         List<Integer> vals = new ArrayList<>(map.values());
