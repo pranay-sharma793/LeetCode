@@ -33,13 +33,17 @@ class Solution {
                 rows.add("r"+r+board[r][c]);
                 cols.add("c"+c+board[r][c]);
                 sqs.add("s"+r/3+c/3+board[r][c]);
-                // System.out.println("added :: " + "s"+ r/3+c/3+board[r][c] + " to sqs");
+
+                // rows.add("r"+r+board[r][c]);
+                // rows.add("c"+c+board[r][c]);
+                // rows.add("s"+r/3+c/3+board[r][c]);
+                
             }
         }
 
-        System.out.println(rows);
-        System.out.println(cols);
-        System.out.println(sqs);
+        // System.out.println(rows);
+        // System.out.println(cols);
+        // System.out.println(sqs);
         
         return true;
     }
