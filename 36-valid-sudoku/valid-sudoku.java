@@ -1,3 +1,12 @@
+/*
+Taking three hashsets for row, columns and sqaures to validate each
+Adding each value to the hashset into their respective row, column or sqaure with a number prefix.
+
+Leanrning: Hashset
+
+ */
+
+
 class Solution {
     public boolean isValidSudoku(char[][] board) {
 
