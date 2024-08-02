@@ -1,3 +1,11 @@
+/**
+trick: since the array is sorted we take two end pointer and keep checking for sum. 
+if sum is greater than move right pointer to smaller number else move left pointer to higher nums
+
+learning: return new int[] {val, val}
+ */
+
+
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
 
