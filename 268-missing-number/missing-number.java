@@ -1,3 +1,7 @@
+/**
+Trick: Since all numbers are in starting with 0 until n. Sum all the nums and sum the total length values. The missing value is the diff
+ */
+
 class Solution {
     public int missingNumber(int[] nums) {
         
