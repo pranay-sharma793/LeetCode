@@ -5,14 +5,15 @@ class Solution {
         int sum2= 0;
         int n = nums.length;
 
+        sum2 = (n*(n+1))/2;
+
         for(int i=0; i < n; i++){
             sum1+= nums[i];
-            sum2+= i;
+            // sum2+= i;
         }
 
-        sum2 = sum2 + n;
+        // sum2 = sum2 + n;
 
-        System.gc();
         return sum2 - sum1;
     }
 }
