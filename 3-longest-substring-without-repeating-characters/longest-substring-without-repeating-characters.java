@@ -1,3 +1,9 @@
+/**
+Trick: This is sliding window problem where we are using two pointers and a set to focus on a long string sequence. As it requires no repetition we update the size of window and update the pointer accordingly.
+
+Learning: sliding window, set usage for substring, charAt
+ */
+
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
@@ -6,8 +12,8 @@ class Solution {
         int r = 0;
         
         while(r < s.length()){
-            if(!set.contains(s.charAt(r))){
-                set.add(s.charAt(r));
+            if(set.add(s.charAt(r))){
+                // set.add(s.charAt(r));
                 r++;
                 max = Math.max(max, set.size());
             } else {
