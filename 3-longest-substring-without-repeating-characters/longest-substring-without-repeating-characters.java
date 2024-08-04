@@ -13,7 +13,7 @@ class Solution {
         
         while(r < s.length()){
             if(set.add(s.charAt(r))){
-                //can check if !contains to
+                //can check if !contains too
                 // set.add(s.charAt(r));
                 r++;
                 max = Math.max(max, set.size());
