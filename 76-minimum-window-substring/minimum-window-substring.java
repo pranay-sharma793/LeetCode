@@ -1,9 +1,6 @@
 class Solution {
     public String minWindow(String s, String t) {
 
-        // String tL = t.toLowerCase();
-        // String sL = s.toLowerCase();
-
         Map<Character, Integer> map = new HashMap<>();
         Map<Integer, String> minStr = new HashMap<>();
 
@@ -14,7 +11,6 @@ class Solution {
         int l=0, r=0;
         int minWin = Integer.MAX_VALUE;
         int count = map.size();
-        int valL = -1;
 
         while(r < s.length()){   
 
