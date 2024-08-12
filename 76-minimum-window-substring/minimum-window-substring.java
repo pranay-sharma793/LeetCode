@@ -1,8 +1,8 @@
 class Solution {
     public String minWindow(String s, String t) {
 
-        String tL = t.toLowerCase();
-        String sL = s.toLowerCase();
+        // String tL = t.toLowerCase();
+        // String sL = s.toLowerCase();
 
         Map<Character, Integer> map = new HashMap<>();
         Map<Integer, String> minStr = new HashMap<>();
