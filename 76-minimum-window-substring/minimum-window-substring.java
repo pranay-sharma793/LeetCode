@@ -2,7 +2,7 @@ class Solution {
     public String minWindow(String s, String t) {
 
         Map<Character, Integer> map = new HashMap<>();
-        Map<Integer, String> minStr = new HashMap<>();
+        String ans = "";
 
         for(char c : t.toCharArray()){
             map.put(c, map.getOrDefault(c, 0) + 1);
@@ -30,8 +30,11 @@ class Solution {
                     l++;
                 }
 
+                if((r-l+1) < minWin){
+                    ans = s.substring(l, r+1);
+                }
                 minWin = Math.min(minWin , (r-l+1));
-                minStr.put((r-l+1), s.substring(l, r+1));
+
                 // System.out.println("window found at: "+l+"-"+r + "::" + s.substring(l, r+1));
 
                 map.put(s.charAt(l), map.get(s.charAt(l)) + 1);
@@ -44,6 +47,6 @@ class Solution {
 
         }
         
-        return minStr.getOrDefault(minWin, "");
+        return ans;
     }
 }
