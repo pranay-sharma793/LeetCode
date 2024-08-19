@@ -1,3 +1,11 @@
+/**
+binary search to find the min value. Move to the unsorted array size. compare first and last element to the mid to decide. 
+Learning: mid calculation is start + (end - start)/2 to prevent int overflow. 
+
+prev and next is calculated with % n to avoid index out of bound and to rotate back.
+ */
+
+
 class Solution {
     public int findMin(int[] nums) {
         
