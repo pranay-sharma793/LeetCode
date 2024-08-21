@@ -1,3 +1,10 @@
+/**
+Binary search question:: check if first is less than last elements then its sorted, then apply normal BS.
+Else find the start or min element and compare with the either 0 or nth and apply BS on one side of the min element.
+
+remember: nums[n-1] < target,  int mid = start + (end - start)/2;,  int prev = (mid + n - 1) % n;, int next = (mid + 1) % n;
+ */
+
 class Solution {
     public int search(int[] nums, int target) {
 
