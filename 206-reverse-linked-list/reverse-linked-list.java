@@ -1,4 +1,12 @@
 /**
+
+Reverse of a linked list: Keep the curr node at head. intiailise prev as null. and keep moving ahead using a tmp at second.next.
+
+Iterative approach is faster than recursive as T is O(n) in both but space is O(1) in iterative and O(n) in recsursive
+
+ */
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -11,16 +19,17 @@
 class Solution {
     public ListNode reverseList(ListNode head) {
 
-        ListNode newHead = head;
-        head = null;
+        ListNode second = head;
         ListNode prev = null;
+        head = null;
 
-        while(newHead != null){
-            System.out.println("working with : " + newHead.val);
-            ListNode tmp = newHead.next;
-            newHead.next = prev;
-            prev = newHead;
-            newHead = tmp;
+        while(second != null){
+
+            ListNode tmp = second.next; 
+            second.next = prev;
+            prev = second;
+            second = tmp;
+
         }
 
         return prev;
