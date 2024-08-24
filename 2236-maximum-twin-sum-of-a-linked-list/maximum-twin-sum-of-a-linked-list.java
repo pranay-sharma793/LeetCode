@@ -1,4 +1,10 @@
 /**
+Trick: using the fast and slow pointer reach the mid of the LL. 
+Then from the mid reverse the LL till the end.
+Now loop from head until u reach mid and keep summing head val and prev val.
+ */
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
