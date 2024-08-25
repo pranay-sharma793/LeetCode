@@ -1,4 +1,12 @@
 /**
+Floyd's Cycle detection algorithm. Or slow and fast pointer or hare and tortoise algo. Here we take two pointer one incrementing twice and other once.
+Remember: to loop until fast!=null and fast.next!=null.
+
+Also, check slow == fast after incrementing.
+
+ */
+
+/**
  * Definition for singly-linked list.
  * class ListNode {
  *     int val;
@@ -12,11 +20,8 @@
 public class Solution {
     public boolean hasCycle(ListNode head) {
 
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-
-        ListNode fast = dummy;
-        ListNode slow = dummy;
+        ListNode fast = head;
+        ListNode slow = head;
 
         while(fast != null && fast.next != null){
 
