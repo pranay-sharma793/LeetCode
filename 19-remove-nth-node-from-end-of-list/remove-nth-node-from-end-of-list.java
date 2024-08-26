@@ -10,41 +10,12 @@
  */
 class Solution {
 
-    // public ListNode removeNthFromEnd(ListNode head, int n) {
-        
-    //     if(head.next == null && n == 1) return null;
-
-    //     ListNode newHead = reverse(head);
-
-    //     ListNode dummy = new ListNode(-1);
-    //     dummy.next = newHead;
-
-    //     ListNode curr = newHead;
-    //     ListNode prev = dummy;
-
-    //     while(n > 1){
-    //         prev = curr;
-    //         curr = curr.next;
-    //         n--;
-    //     }
-
-    //     if (curr.next != null) {
-    //         curr = curr.next;
-    //         prev.next = curr;
-    //     }
-
-    //     if(prev.val == -1) prev = prev.next;
-
-    //     return reverse(prev);
-        
-    // }
-
     public ListNode removeNthFromEnd(ListNode head, int n) {
+
+        if(head.next == null) return null;
 
         int size = getSize(head);
         int removePos = size - n;
-
-        // if(removePos == 0) return null;
 
         ListNode dummy = new ListNode(-1);
 
@@ -72,34 +43,13 @@ class Solution {
     }
 
     private int getSize(ListNode head){
-        ListNode fast = head;
-        ListNode slow = head;
-        int n = 0;
 
-        while(fast != null && fast.next != null){
-            fast = fast.next.next;
-            slow = slow.next;
-            n++;
+        int size = 0;
+        while(head != null){
+            head = head.next;
+            size++;
         }
 
-        return fast == null ? 2*n : 2*n + 1;
-    }
-
-
-
-    private ListNode reverse(ListNode head){
-
-        ListNode curr = head;
-        ListNode prev = null;
-        // head.next = null;
-
-        while(curr != null){
-            ListNode tmp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = tmp;
-        }
-
-        return prev;
+        return size;
     }
 }
