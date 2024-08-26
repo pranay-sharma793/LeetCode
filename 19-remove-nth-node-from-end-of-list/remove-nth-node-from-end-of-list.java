@@ -1,4 +1,12 @@
 /**
+Get the size of the linkedlist: Is it easy to keep to pointer until we hit null and do size++
+
+once we have size, check if size = n. Meanining first element removal. return head.next.
+
+else cal removePos = size - n, travel curr till one element before and update curr.next to curr.next.next
+ */
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -15,27 +23,20 @@ class Solution {
         if(head.next == null) return null;
 
         int size = getSize(head);
+        if(n == size) return head.next;
+
         int removePos = size - n;
-
-        if(removePos == 0) return head.next;
-
         ListNode curr = head;
-        ListNode prev = null;
 
-        while(removePos > 0){
-            prev = curr;
+        while(removePos > 1){
             curr = curr.next;
             removePos--;
         }
 
-        if(curr.next == null) prev.next = null;
-        else {
-            prev.next = curr.next;
-        }
-        
+        curr.next = curr.next.next;
+
         return head;
 
-        
     }
 
     private int getSize(ListNode head){
