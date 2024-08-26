@@ -1,4 +1,14 @@
 /**
+Trick: travel till k, and to find the mirror put another pointer behind and travel one starting with k and another from head. 
+While k.next!=null, when it comes out newCurr will be at the kth node from last. 
+
+then do a simple swap using temp and return head.
+
+Time: O(n)
+Space: O(1)
+ */
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
