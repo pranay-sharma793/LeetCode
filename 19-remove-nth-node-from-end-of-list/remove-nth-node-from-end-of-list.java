@@ -17,10 +17,10 @@ class Solution {
         int size = getSize(head);
         int removePos = size - n;
 
-        ListNode dummy = new ListNode(-1);
+        if(removePos == 0) return head.next;
 
         ListNode curr = head;
-        ListNode prev = dummy;
+        ListNode prev = null;
 
         while(removePos > 0){
             prev = curr;
@@ -30,14 +30,10 @@ class Solution {
 
         if(curr.next == null) prev.next = null;
         else {
-            curr = curr.next;
-            prev.next = curr;
+            prev.next = curr.next;
         }
-
-        if(prev.val == -1) prev = prev.next;
-        else prev = head;
-
-        return prev;
+        
+        return head;
 
         
     }
