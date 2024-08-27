@@ -1,4 +1,13 @@
-class Solution {
+/**
+Trick: Sort the array and then traverse to find the min and keep adding the min pairs to the list.
+
+Learning: not to use math.abs as it increases the time and since the arr are sorted it is not required. 
+
+Time: (nlogn) //sorting in o(nlogn) time and o(n) traversal. 
+Space: O(n)
+ */
+
+class Solution{
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
 
         Arrays.sort(arr);
