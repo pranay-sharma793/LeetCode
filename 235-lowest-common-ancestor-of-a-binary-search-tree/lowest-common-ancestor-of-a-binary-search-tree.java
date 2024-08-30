@@ -24,30 +24,9 @@ class Solution {
         }
 
         return LCA;
-
-
-        // if(isCommonAncestor(root, p, q)) return root;
-
-        // if(root.left != null) {
-        //     TreeNode LCA = lowestCommonAncestor(root.left, p, q);
-        //     if(LCA != null) return LCA;
-        // }
-
-        // if(root.right != null) {
-        //     TreeNode LCA = lowestCommonAncestor(root.right, p, q);
-        //     if(LCA != null) return LCA;
-        // }
-
-        // return null;
- 
-        // if(isCommonAncestor(root, p, q)) return root;
-
-        // return isCommonAncestor(root, p, q);
     }
 
     public boolean isCommonAncestor(TreeNode root,  TreeNode p, TreeNode q){
-
-        System.out.println("I have root.val :: " + root.val);
 
         return (foundNode(root, p) && foundNode(root, q));
     }
@@ -55,8 +34,6 @@ class Solution {
     public boolean foundNode(TreeNode root, TreeNode p){
 
         if(root == null) return false;
-
-        System.out.println(" -- checking val and p " + root.val + " " + p.val);
 
         if(root.val == p.val) return true;
  
