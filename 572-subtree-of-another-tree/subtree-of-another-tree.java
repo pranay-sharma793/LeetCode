@@ -18,9 +18,7 @@ class Solution {
 
         if(root == null) return false;
 
-        if(subRoot == null){
-            return true;
-        }
+        if(subRoot == null) return true;
 
         if(isSameTree(root, subRoot)) return true;
 
@@ -30,12 +28,14 @@ class Solution {
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
 
+        //checking if the structure is same
         if(p == null && q == null) return true;
-
         if((p == null && q != null) || (p != null && q == null)) return false;
 
+        // checking if the value are the same
         if(p.val != q.val) return false;
 
+        // call recursively to the right and left
         else return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
         
     }
