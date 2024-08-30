@@ -26,10 +26,10 @@ class Solution {
         if(root == null) return false;
 
         //if we find the subtree in the main tree starting at position root, we return true
-        // if(isSameTree(root, subRoot)) return true;
+        if(isSameTree(root, subRoot)) return true;
 
         // recursive call to find the subtree in left or right end. (we either find it and return true from a side or if both end and return false we return false)
-        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot) || isSameTree(root, subRoot);
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 
     }
 
