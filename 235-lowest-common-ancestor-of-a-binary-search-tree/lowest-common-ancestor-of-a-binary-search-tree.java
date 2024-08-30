@@ -11,8 +11,6 @@
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
-        if(root == null) return null;
-
         TreeNode LCA = root;
 
         if(root.left != null && isCommonAncestor(root.left, p, q)){
