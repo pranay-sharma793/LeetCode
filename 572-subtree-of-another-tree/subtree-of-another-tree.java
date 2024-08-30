@@ -18,7 +18,11 @@ class Solution {
 
         if(root == null) return false;
 
-        if((root.val == subRoot.val) && isSameTree(root, subRoot)) return true;
+        if(subRoot == null){
+            return true;
+        }
+
+        if(isSameTree(root, subRoot)) return true;
 
         return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 
