@@ -1,4 +1,12 @@
 /**
+Simple checks for BST, as if p and q are smallers return recursive left call else if p and q both are greater return recursive right. 
+If its in the btw or its equal to one of the p and q vals return that directly.
+
+Time: O(logn) /for a balanced BST
+Space: O(logn) /for a balanced BST
+ */
+
+/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -16,7 +24,7 @@ class Solution {
 
         if(root.val <= p.val && root.val <= q.val) return lowestCommonAncestor(root.right, p, q);
         if(root.val >= p.val && root.val >= q.val) return lowestCommonAncestor(root.left, p, q);
-        
+
         return root;
     }
 
