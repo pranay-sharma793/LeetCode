@@ -1,4 +1,12 @@
 /**
+BFS applied with looping all nodes in the queue at a given level. 
+
+
+Time: O(n)
+Space: O(n)
+ */
+
+/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -21,7 +29,7 @@ class Solution {
 
         if(root == null) return result;
 
-        
+
         queue.add(root);
 
         while(!queue.isEmpty()){
