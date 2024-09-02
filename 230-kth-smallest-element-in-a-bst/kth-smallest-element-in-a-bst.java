@@ -30,15 +30,15 @@ class Solution {
         
     }
 
-    private void performInorderDFS(TreeNode root, List<Integer> list){
+    // private void performInorderDFS(TreeNode root, List<Integer> list){
 
-        if(root == null) return;
+    //     if(root == null) return;
 
-        performInorderDFS(root.left, list);
-        list.add(root.val);
-        performInorderDFS(root.right, list);
+    //     performInorderDFS(root.left, list);
+    //     list.add(root.val);
+    //     performInorderDFS(root.right, list);
 
-    }
+    // }
 
     private void returnKth(TreeNode root){
 
