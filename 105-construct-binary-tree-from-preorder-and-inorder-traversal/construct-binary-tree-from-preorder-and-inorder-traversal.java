@@ -18,7 +18,7 @@ class Solution {
     private HashMap<Integer, Integer> inorderIndexMap;
     private int preIndex = 0;
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    public TreeNode buildTree1(int[] preorder, int[] inorder) {
         inorderIndexMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
             inorderIndexMap.put(inorder[i], i);
@@ -46,7 +46,7 @@ class Solution {
 
 
 
-    public TreeNode buildTree1(int[] preorder, int[] inorder) {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
 
         return helper(0, 0, inorder.length-1, preorder, inorder);
         
