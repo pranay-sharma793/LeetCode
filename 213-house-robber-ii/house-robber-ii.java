@@ -1,29 +1,28 @@
+/**
+Sine the houses are in circle, its either second to last house OR first to second last house.
+
+Time: O(n)
+Space: O(1)
+ */
+
 class Solution {
     public int rob(int[] nums) {
 
         if(nums.length == 1) return nums[0];
+        return Math.max(helperRob(nums,0,nums.length-1), helperRob(nums, 1, nums.length));
+    }
 
+    private int helperRob(int[] nums, int start, int end){
         int prev = 0;
         int curr = 0;
 
-        for(int i=0; i<nums.length-1; i++){
-            int tmp = curr;
-            curr = Math.max(curr, prev+nums[i]);
-            prev = tmp;
-        }
-        
-        int sum1 = curr;
-
-        prev = 0;
-        curr = 0;
-
-        for(int i=1; i<nums.length; i++){
+        for(int i=start; i<end; i++){
             int tmp = curr;
             curr = Math.max(curr, prev+nums[i]);
             prev = tmp;
         }
 
-        return Math.max(sum1, curr);
+        return curr;
     }
 
 
