@@ -1,4 +1,12 @@
 /**
+
+Here we use recursion hence we take a helper function.
+
+
+TIME AND SPACE: O(n)
+ */
+
+/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -20,16 +28,11 @@ class Solution {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         inorderIndexMap = new HashMap<>();
-        
-        for(int val : inorder){
-            inorderIndexMap.put(val , preIndex++);
-        }
 
-        // for (int i = 0; i < inorder.length; i++) {
-        //     inorderIndexMap.put(inorder[i], i);
-        // }
+        for (int i = 0; i < inorder.length; i++) {
+            inorderIndexMap.put(inorder[i], i);
+        }
      
-        preIndex = 0;
         return buildTreeHelper(preorder, 0, inorder.length - 1);
     }
 
@@ -37,13 +40,11 @@ class Solution {
         if (inStart > inEnd) return null;
 
         // Get the current root value and increment preIndex
-        // int rootVal = preorder[preIndex++];
-        // TreeNode root = new TreeNode(rootVal);
-
-        TreeNode root = new TreeNode(preorder[preIndex++]);
+        int rootVal = preorder[preIndex++];
+        TreeNode root = new TreeNode(rootVal);
 
         // Get the index of the current root in inorder traversal
-        int inIndex = inorderIndexMap.get(root.val);
+        int inIndex = inorderIndexMap.get(rootVal);
 
         // Recursively build the left and right subtrees
         root.left = buildTreeHelper(preorder, inStart, inIndex - 1);
