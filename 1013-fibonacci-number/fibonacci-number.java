@@ -1,6 +1,6 @@
 class Solution {
     // Iterarive approach
-    public int fib(int n) {
+    public int fib1(int n) {
 
         if(n == 0) return 0;
 
@@ -11,7 +11,7 @@ class Solution {
     }
 
     // top down
-    public int fib1(int n) {
+    public int fib(int n) {
 
         Map<Integer, Integer> map = new HashMap<>();
 
