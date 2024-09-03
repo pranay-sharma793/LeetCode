@@ -1,3 +1,11 @@
+/**
+
+Code similar to longest palindrome used here. For evert char match during center expansion we increase a counter. We sum all the counter returns. (There are basically all the palindrome possible from that letter (i)) we do it for odd and even centers and sum it all togther and return the final value.
+
+Time: O(n^2)
+Space: O(1)
+ */
+
 class Solution {
     public int countSubstrings(String s) {
 
@@ -23,7 +31,6 @@ class Solution {
             counter++;
             l-=1;
             r+=1;
-
         }
 
         return counter;
