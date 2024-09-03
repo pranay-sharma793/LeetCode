@@ -11,7 +11,7 @@ class Solution {
     }
 
     // top down
-    public int fib(int n) {
+    public int fib2(int n) {
 
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -32,5 +32,22 @@ class Solution {
         }
 
         return map.get(n);
+    }
+
+    // bottom up in constant time
+    public int fib(int n) {
+        if(n == 0) return 0;
+        if(n == 1) return 1;
+
+        int curr = 1;
+        int prev = 0;
+
+        for(int i = 2; i <= n; i++){
+            int tmp = curr;
+            curr += prev;
+            prev = tmp;
+        }
+
+        return curr;
     }
 }
