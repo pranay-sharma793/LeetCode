@@ -1,3 +1,14 @@
+/**
+
+We keep expanding our range to check for a palindrome for each letter in the string and going left and right ways adding.
+We have to do it twice for odd center and even center of the string.
+We store the string which is the longest of all.
+
+Time: O(n^2)
+Space: O(1)
+
+ */
+
 class Solution {
 
     public String longestPalindrome(String s) {
