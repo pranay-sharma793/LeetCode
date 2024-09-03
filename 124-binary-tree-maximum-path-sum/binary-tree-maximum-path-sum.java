@@ -1,4 +1,11 @@
 /**
+Algorithm\U0001f609
+
+the overall time complexity is O(n).
+the overall space complexity is O(n) in the worst case (for a skewed tree), and O(log n) in the average case (for a balanced tree).
+ */
+
+/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
