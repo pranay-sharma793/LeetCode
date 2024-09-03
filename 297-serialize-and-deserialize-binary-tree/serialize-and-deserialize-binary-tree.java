@@ -9,8 +9,31 @@
  */
 public class Codec {
 
-    // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
+        if(root == null) return "$";
+        return root.val + "," + serialize(root.left) +  "," + serialize(root.right);
+    }
+
+    public TreeNode deserialize(String data) {
+        Queue<String> queue = new LinkedList<>(Arrays.asList(data.split(",")));
+        return helper(queue);
+    }
+
+    private TreeNode helper(Queue<String> queue){
+        String curr = queue.poll();
+        if(curr.equals("$")) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(curr));
+
+        root.left = helper(queue);
+        root.right = helper(queue);
+
+        return root;
+    }
+
+
+
+    // Encodes a tree to a single string.
+    public String serialize1(TreeNode root) {
         if(root == null) return "";
 
         StringBuilder sb = new StringBuilder();
@@ -41,9 +64,11 @@ public class Codec {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public TreeNode deserialize1(String data) {
 
-        if(data.equals("")) return null;
+        System.out.println(data);
+
+        if(data.length() == 1 ) return null;
 
         String[] dataArr = data.split(",");
         
