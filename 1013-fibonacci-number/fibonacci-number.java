@@ -7,7 +7,8 @@ class Solution {
         if(n == 1) return 1;
 
         return fib(n-1) + fib(n-2);
-        
+        //TIme: O(2*n)
+        //Space: O(2n)
     }
 
     // top down
@@ -19,6 +20,8 @@ class Solution {
         map.put(1, 1);
 
         return helper(map, n);
+        //TIme: O(n)
+        //Space: O(n)
         
     }
 
@@ -32,6 +35,7 @@ class Solution {
         }
 
         return map.get(n);
+
     }
 
     // bottom up in constant time
@@ -49,5 +53,8 @@ class Solution {
         }
 
         return curr;
+
+        //TIme: O(n)
+        //Space: O(1)
     }
 }
