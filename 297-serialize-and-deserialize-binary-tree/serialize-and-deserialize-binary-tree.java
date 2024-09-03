@@ -1,4 +1,12 @@
 /**
+Serialise in a string as a inorder traversal (root + serialise(left) + serialise(right)). 
+Deserailise them by adding in a queue and call left nd right (root=q.poll, root.left=deserialise(queue), root.right(deserialise(queue)))
+
+Time and Space for both is O(n)
+
+ */
+
+/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
