@@ -3,13 +3,11 @@ class Solution {
 
         if(s.equals("")) return true;
 
-        // if(t.equals("")) return false;
-
         int idx = 0;
-        for(int i = 0; i < t.length(); i++){
-            char c = s.charAt(idx);
+        for(char tc : t.toCharArray()){
 
-            if(t.charAt(i) == c){
+            char c = s.charAt(idx);
+            if(tc == c){
                 idx++;
                 if(idx == s.length()) return true;
                 continue;
