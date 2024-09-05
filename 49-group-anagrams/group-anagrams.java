@@ -18,7 +18,6 @@ class Solution {
         for(String s : strs){
 
             String sFreq = getFreq(s);
-            System.out.println(sFreq);
             List<String> tmp = map.getOrDefault(sFreq, new ArrayList<>());
 
             // if(map.containsKey(sFreq))
@@ -40,6 +39,8 @@ class Solution {
     for(char c : s.toCharArray()){
         freq[c - 'a']++;
     }
+
+    // String newString = new String(ch);
 
     StringBuilder freqString = new StringBuilder();
     char c = 'a';
