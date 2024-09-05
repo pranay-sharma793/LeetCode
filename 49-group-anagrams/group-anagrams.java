@@ -47,7 +47,6 @@ class Solution {
     }
 
     String newString = new String(freqch);
-    System.out.println(newString);
 
     return newString;
 
