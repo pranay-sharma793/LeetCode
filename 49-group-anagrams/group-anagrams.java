@@ -18,6 +18,7 @@ class Solution {
         for(String s : strs){
 
             String sFreq = getFreq(s);
+            System.out.println(sFreq);
             List<String> tmp = map.getOrDefault(sFreq, new ArrayList<>());
 
             // if(map.containsKey(sFreq))
@@ -48,6 +49,12 @@ class Solution {
         freqString.append(i);
         c++;
     }
+
+
+    //Can not use this since it keep the order same and we finding anagram
+    // for(char x : s.toCharArray()){
+    //     freqString.append(x).append(freq[x - 'a']);
+    // }
 
     return freqString.toString();
     }
