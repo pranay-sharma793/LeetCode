@@ -33,30 +33,39 @@ class Solution {
 
     public String getFreq(String s){
 
-    // List<Integer> freq = new ArrayList<>(26);
-    int[] freq = new int[26];
+    // // List<Integer> freq = new ArrayList<>(26);
+    // int[] freq = new int[26];
 
-    for(char c : s.toCharArray()){
-        freq[c - 'a']++;
-    }
-
-    // String newString = new String(ch);
-
-    StringBuilder freqString = new StringBuilder();
-    char c = 'a';
-
-    for(int i : freq){
-        freqString.append(c);
-        freqString.append(i);
-        c++;
-    }
-
-
-    //Can not use this since it keep the order same and we finding anagram
-    // for(char x : s.toCharArray()){
-    //     freqString.append(x).append(freq[x - 'a']);
+    // for(char c : s.toCharArray()){
+    //     freq[c - 'a']++;
     // }
 
-    return freqString.toString();
+    char[] freqch = new char[26];
+
+    for(char c : s.toCharArray()){
+        freqch[c - 'a']++;
+    }
+
+    String newString = new String(freqch);
+    System.out.println(newString);
+
+    return newString;
+
+    // StringBuilder freqString = new StringBuilder();
+    // char c = 'a';
+
+    // for(int i : freq){
+    //     freqString.append(c);
+    //     freqString.append(i);
+    //     c++;
+    // }
+
+
+    // //Can not use this since it keep the order same and we finding anagram
+    // // for(char x : s.toCharArray()){
+    // //     freqString.append(x).append(freq[x - 'a']);
+    // // }
+
+    // return freqString.toString();
     }
 }
