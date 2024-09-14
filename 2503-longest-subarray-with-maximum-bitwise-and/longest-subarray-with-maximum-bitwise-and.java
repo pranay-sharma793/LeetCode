@@ -4,7 +4,9 @@ class Solution {
         int maxNum = nums[0];
 
         for(int i=1; i<n;i++){
-            maxNum = Math.max(maxNum, nums[i]);
+            if(nums[i] > maxNum){
+                maxNum = nums[i];
+            }
             // maxNum = maxNum>nums[i]?maxNum:nums[i];
         }
 
