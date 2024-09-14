@@ -4,10 +4,7 @@ class Solution {
         int maxNum = nums[0];
 
         for(int i=1; i<n;i++){
-            if(nums[i] > maxNum){
-                maxNum = nums[i];
-            }
-            // maxNum = maxNum>nums[i]?maxNum:nums[i];
+            maxNum = maxNum>nums[i]?maxNum:nums[i];
         }
 
         int res = 0;
@@ -20,7 +17,8 @@ class Solution {
                 res = 0;
             }
 
-            maxSub = Math.max(maxSub, res);
+            // maxSub = Math.max(maxSub, res);
+            maxSub = maxSub>res?maxSub:res;
         }
         
         return maxSub;
