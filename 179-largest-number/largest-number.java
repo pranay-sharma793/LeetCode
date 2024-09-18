@@ -1,5 +1,41 @@
 class Solution {
     public static String largestNumber(int[] nums){
+        int n = nums.length;
+
+        List<Integer> list = new ArrayList<>();
+
+        for(int k : nums){
+            list.add(k);
+        }
+
+        Collections.sort(list, (a,b) -> {
+            String n1 = Integer.toString(a);
+            String n2 = Integer.toString(b);
+
+            return compareNums(n1, n2)?1:0;
+        });
+
+        Collections.sort(list, (a,b) -> {
+            String n1 = Integer.toString(a);
+            String n2 = Integer.toString(b);
+
+            return (n1+n2).compareTo(n2+n1);
+        });
+
+        Collections.reverse(list);
+
+        StringBuilder sb = new StringBuilder();
+
+        boolean AllZeroflag = true;
+        for (int i = 0; i < n; i++) {
+            if (list.get(i) != 0) AllZeroflag = false;
+            sb.append(list.get(i));
+        }
+
+        return AllZeroflag?"0":sb.toString();
+    }
+
+    public static String largestNumber1(int[] nums){
 
         int n = nums.length;
 
