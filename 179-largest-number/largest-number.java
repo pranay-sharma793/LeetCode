@@ -8,7 +8,6 @@ class Solution {
             list.add(k);
         }
 
-
         Collections.sort(list, (a,b) -> {
             String n1 = Integer.toString(a);
             String n2 = Integer.toString(b);
