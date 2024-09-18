@@ -16,12 +16,10 @@ class Solution {
             return (n1+n2).compareTo(n2+n1);
         });
 
-        Collections.reverse(list);
-
         StringBuilder sb = new StringBuilder();
 
         boolean AllZeroflag = true;
-        for (int i = 0; i < n; i++) {
+        for (int i = n-1; i > -1; i--) {
             if (list.get(i) != 0) AllZeroflag = false;
             sb.append(list.get(i));
         }
