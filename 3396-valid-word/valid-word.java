@@ -9,6 +9,7 @@ class Solution {
         boolean hadConsonant = false;
         int charCount =0;
 
+
         for(int i =0; i < n; i++){
             char c = word.charAt(i);
 
@@ -27,7 +28,11 @@ class Solution {
     }
 
     private boolean validChar(char c){
-        return (c >= '0' && c <= '9') || isEnglishLetter(c);
+        return isNumber(c) || isEnglishLetter(c);
+    }
+
+    private boolean isNumber(char c){
+        return c >= '0' && c <= '9';
     }
 
     private boolean isEnglishLetter(char c){
