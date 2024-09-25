@@ -3,6 +3,8 @@ class Solution {
 
         int n = word.length();
 
+        if(n < 3) return false;
+
         boolean hadVowel = false;
         boolean hadConsonant = false;
         int charCount =0;
