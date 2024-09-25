@@ -31,48 +31,9 @@ class Solution {
         }
 
         return sign*res;
-
-        // while(i < n && notAValidChar(i, s)){
-        //     char c = s.charAt(i);
-
-        //     if(isSpace(c)){
-        //         if(!flag) break;
-
-        //         i++;
-        //         continue;
-        //     }
-
-        //     if(isSign(c)){
-        //         if(!flag) break;
-                
-        //         flag = false;
-        //         sign = c=='-'?-1:1;
-        //         i++;
-        //     }
-
-        //     if(isNumber(c)){
-        //         while(i < n && isNumber(s.charAt(i))){
-        //             c = s.charAt(i);
-
-        //             if(notInRange(res, c)){
-        //                 return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
-        //             }
-        //             res = res * 10 + (c - '0');
-        //             i++;
-        //         }
-        //         break;
-        //     }
-        // }
-
-        // return sign*res;
         
     }
-
-    private boolean notAValidChar(int i, String s){
-        char c = s.charAt(i);
-        return isSpace(c) || isSign(c) || isNumber(c);
-    }
-
+    
     private boolean isSpace(char c){
         return c == ' ';
     }
