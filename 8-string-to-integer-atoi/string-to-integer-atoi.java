@@ -1,56 +1,67 @@
-/**
-Trick: traverse the string,
-- skip if ' ' in the start ()
- */
-
 class Solution {
     public int myAtoi(String s) {
+
         int n = s.length();
-        if(n == 0) return 0;
 
-        StringBuilder sb = new StringBuilder();
-        int result=0;
-        int sign=1;
+        int i = 0;
+        int sign = 1;
+        int res = 0;
+        boolean flag = true;
 
-        for(int i=0; i < n; i++){
+        while(i < n && notAValidChar(i, s)){
             char c = s.charAt(i);
 
-            if(c == ' '){
-                if(sb.length() > 0)break;
-                else continue;
+            if(isSpace(c)){
+                if(!flag) break;
+                
+                i++;
+                continue;
+            }
+
+            if(isSign(c)){
+                if(!flag) break;
+                
+                flag = false;
+                sign = c=='-'?-1:1;
+                i++;
             }
 
             if(isNumber(c)){
-                int digit = c - '0';
-                if(result > Integer.MAX_VALUE/10 || (result == Integer.MAX_VALUE/10 && digit > Integer.MAX_VALUE%10)){
-                    return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+                while(i < n && isNumber(s.charAt(i))){
+                    c = s.charAt(i);
+
+                    if(notInRange(res, c)){
+                        return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+                    }
+                    res = res * 10 + (c - '0');
+                    i++;
                 }
-                result = result*10 + digit;
-                sb.append(c);
-                continue;
+                break;
             }
-
-            if((c == '-' || c == '+') && sb.length() == 0 && (i+1 < n && isNumber(s.charAt(i+1)))){
-                sign = c=='+'?1:-1;
-                continue;
-            }
-
-            break;
         }
 
-        return sign*result;
+        return sign*res;
+        
+    }
 
-        // if(sb.length()==0) return 0;
+    private boolean notAValidChar(int i, String s){
+        char c = s.charAt(i);
+        return isSpace(c) || isSign(c) || isNumber(c);
+    }
 
-        // long num = Long.parseLong(sb.toString());
-        // if(num == 0) return 0;
-        // if(num > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-        // if(num < Integer.MIN_VALUE) return Integer.MIN_VALUE;
+    private boolean isSpace(char c){
+        return c == ' ';
+    }
 
-        // return (int) num;
+    private boolean isSign(char c){
+        return c == '-' || c == '+';
     }
 
     private boolean isNumber(char c){
         return c >= '0' && c <= '9';
+    }
+
+    private boolean notInRange(int res, char c){
+        return res > (Integer.MAX_VALUE/10) || (res == (Integer.MAX_VALUE/10) && (c - '0') > Integer.MAX_VALUE%10);
     }
 }
