@@ -8,39 +8,63 @@ class Solution {
         int res = 0;
         boolean flag = true;
 
-        while(i < n && notAValidChar(i, s)){
+        while(i < n && isSpace(s.charAt(i))){
+            i++;
+        }
+
+        if(i < n && s.charAt(i)=='+'){
+            sign = 1;
+            i++;
+        } else if(i < n && s.charAt(i) == '-'){
+            sign = -1;
+            i++;
+        }
+
+        while(i < n && isNumber(s.charAt(i))){
             char c = s.charAt(i);
 
-            if(isSpace(c)){
-                if(!flag) break;
-                
-                i++;
-                continue;
+            if(notInRange(res, c)){
+                return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
             }
-
-            if(isSign(c)){
-                if(!flag) break;
-                
-                flag = false;
-                sign = c=='-'?-1:1;
-                i++;
-            }
-
-            if(isNumber(c)){
-                while(i < n && isNumber(s.charAt(i))){
-                    c = s.charAt(i);
-
-                    if(notInRange(res, c)){
-                        return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
-                    }
-                    res = res * 10 + (c - '0');
-                    i++;
-                }
-                break;
-            }
+            res = res * 10 + (c - '0');
+            i++;
         }
 
         return sign*res;
+
+        // while(i < n && notAValidChar(i, s)){
+        //     char c = s.charAt(i);
+
+        //     if(isSpace(c)){
+        //         if(!flag) break;
+
+        //         i++;
+        //         continue;
+        //     }
+
+        //     if(isSign(c)){
+        //         if(!flag) break;
+                
+        //         flag = false;
+        //         sign = c=='-'?-1:1;
+        //         i++;
+        //     }
+
+        //     if(isNumber(c)){
+        //         while(i < n && isNumber(s.charAt(i))){
+        //             c = s.charAt(i);
+
+        //             if(notInRange(res, c)){
+        //                 return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+        //             }
+        //             res = res * 10 + (c - '0');
+        //             i++;
+        //         }
+        //         break;
+        //     }
+        // }
+
+        // return sign*res;
         
     }
 
