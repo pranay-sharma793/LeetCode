@@ -1,30 +1,20 @@
 class MyCalendar {
 
-    List<int[]> events;
+    TreeMap<Integer, Integer> map;
 
-    public MyCalendar() {
-        events = new ArrayList<>();
+    public MyCalendar() {    
+        map = new TreeMap<>();
     }
 
     public boolean book(int start, int end) {
+        Integer floor = map.floorKey(start);
+        Integer ceil = map.ceilingKey(start);
 
-        if(end < start ) return false;
-        int[] newEvent = new int[2];
-        newEvent[0] = start;
-        newEvent[1] = end;
+        if(floor != null && map.get(floor)>start) return false;
+        if(ceil != null && ceil<end) return false;
 
-        for(int[] event : events){
-            if(eventOverlap(event, newEvent)){
-                return false;
-            }
-        }
-
-        events.add(newEvent);
+        map.put(start, end);
         return true;
-    }
-
-    private boolean eventOverlap(int[] event, int[] newEvent) {
-        return event[1] > newEvent[0] && newEvent[1] > event[0];
     }
 }
 
