@@ -1,3 +1,24 @@
+/**
+Implementation using BST, here BST is used to store the start and end at each node. It is inserted if we are able to traverse to a leaf node meaning that slot is available. Else we return false.
+
+Learning; implementation of BST:
+
+    class Node{
+        int start, end;
+        Node left, right;
+        public Node(int start, int end){
+            this.start = start;
+            this.end = end;
+        }
+    }
+
+    Node root;
+
+    Time: O(h) height of the BST worse case O(n)
+    Space: O(n)
+
+ */
+
 class MyCalendar {
 
     class Node{
