@@ -2,10 +2,10 @@ class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
 
         int output = words.length;
-        int[] freq = new int[26];
+        boolean[] freq = new boolean[26];
 
         for(char c : allowed.toCharArray()){
-            freq[c - 'a']++;
+            freq[c - 'a'] = true;;
         }
 
         for(String word : words){
@@ -15,7 +15,7 @@ class Solution {
                 }
                 char c = word.charAt(i);
 
-                if(freq[c - 'a'] == 0){
+                if(!freq[c - 'a']){
                     output--;
                     break;
                 }
