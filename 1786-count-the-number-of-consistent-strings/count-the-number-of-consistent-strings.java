@@ -2,11 +2,10 @@ class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
 
         int output = words.length;
-
-        Map<Character, Integer> map = new HashMap<>();
+        int[] freq = new int[26];
 
         for(char c : allowed.toCharArray()){
-            map.put(c , map.getOrDefault(c, 0)+1);
+            freq[c - 'a']++;
         }
 
         for(String word : words){
@@ -16,7 +15,7 @@ class Solution {
                 }
                 char c = word.charAt(i);
 
-                if(!map.containsKey(c)){
+                if(freq[c - 'a'] == 0){
                     output--;
                     break;
                 }
