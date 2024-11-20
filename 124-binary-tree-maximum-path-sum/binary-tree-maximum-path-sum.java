@@ -1,11 +1,4 @@
 /**
-Algorithm\U0001f609
-
-the overall time complexity is O(n).
-the overall space complexity is O(n) in the worst case (for a skewed tree), and O(log n) in the average case (for a balanced tree).
- */
-
-/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -21,28 +14,25 @@ the overall space complexity is O(n) in the worst case (for a skewed tree), and 
  * }
  */
 class Solution {
-    int maxSum;
+    int maxSum = Integer.MIN_VALUE;
     public int maxPathSum(TreeNode root) {
-        maxSum = Integer.MIN_VALUE;
-        helper(root);
+        dfs(root);
         return maxSum;
     }
 
-    private int helper(TreeNode root){
+    private int dfs(TreeNode root){
+
         if(root == null) return 0;
 
-        // This returns the max positive value left subtree can provide
-        int left = Math.max(0, helper(root.left));
+        int left = dfs(root.left);
+        int right = dfs(root.right);
 
-        //This return the max positive value the right subtree can provide
-        int right = Math.max(0, helper(root.right));
+        left = Math.max(left , 0);
+        right = Math.max(right, 0);
 
-        //This sets maxsum if the root, left and right itself have a bigger sum
-        maxSum = Math.max(maxSum, left + right + root.val);
+        int sum = left + right + root.val;
 
-        //here we return the value root + the biggest subtree value either on its left or right.
-        return Math.max(left, right) + root.val;
-
-
+        maxSum = Math.max(maxSum, sum);
+        return root.val + Math.max(left, right);
     }
 }
