@@ -1,12 +1,4 @@
 /**
-Serialise in a string as a inorder traversal (root + serialise(left) + serialise(right)). 
-Deserailise them by adding in a queue and call left nd right (root=q.poll, root.left=deserialise(queue), root.right(deserialise(queue)))
-
-Time and Space for both is O(n)
-
- */
-
-/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -17,90 +9,63 @@ Time and Space for both is O(n)
  */
 public class Codec {
 
-    public String serialize(TreeNode root) {
-        if(root == null) return "$";
-        return root.val + "," + serialize(root.left) +  "," + serialize(root.right);
-    }
-
-    public TreeNode deserialize(String data) {
-        Queue<String> queue = new LinkedList<>(Arrays.asList(data.split(",")));
-        return helper(queue);
-    }
-
-    private TreeNode helper(Queue<String> queue){
-        String curr = queue.poll();
-        if(curr.equals("$")) return null;
-        TreeNode root = new TreeNode(Integer.valueOf(curr));
-
-        root.left = helper(queue);
-        root.right = helper(queue);
-
-        return root;
-    }
-
-
-
     // Encodes a tree to a single string.
-    public String serialize1(TreeNode root) {
+    public String serialize(TreeNode root) {
+
         if(root == null) return "";
 
         StringBuilder sb = new StringBuilder();
 
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
 
-        while(!q.isEmpty()){
-            TreeNode curr = q.poll();
+        while(!queue.isEmpty()){
 
-            if(curr.val == 1001) sb.append("$,");
-            else sb.append(curr.val + ",");
+            TreeNode curr = queue.poll();
 
-            if(curr.val == 1001) continue;
+            if(curr == null){ 
+                sb.append("#");
+            }else {
+                sb.append(curr.val);
+                queue.add(curr.left);
+                queue.add(curr.right);
+            }
 
-            if(curr.left != null) q.add(curr.left);
-            else q.add(new TreeNode(1001));
-
-            if(curr.right != null) q.add(curr.right);
-            else q.add(new TreeNode(1001));
+            sb.append(",");
         }
-
-        sb.setLength(sb.length() - 1);
-        // System.out.println(sb.toString());
-
+        
+        sb.setLength(sb.length() - 1);  //remember to chop off the last ','.
+        System.out.println(sb.toString());
         return sb.toString();
         
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize1(String data) {
+    public TreeNode deserialize(String data) {
+        if(data.length() < 1) return null;
 
-        System.out.println(data);
-
-        if(data.length() == 1 ) return null;
+        Queue<TreeNode> stack = new LinkedList<>();
 
         String[] dataArr = data.split(",");
-        
+
         TreeNode root = new TreeNode(Integer.valueOf(dataArr[0]));
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        stack.add(root);
 
-        for(int i = 2; i < dataArr.length; i+=2){
-            TreeNode curr = q.poll();
+        for(int i=2; i < dataArr.length; i+=2){
 
-            // System.out.println("i, curr, left, right " + i + " " + curr.val  + " " + dataArr[i-1]  + " " + dataArr[i]);
-            
-            if(!dataArr[i-1].equals("$")){
+            TreeNode curr = stack.poll();
+
+            if(!dataArr[i-1].equals("#")){
                 curr.left = new TreeNode(Integer.valueOf(dataArr[i-1]));
-                q.add(curr.left);
-            } else curr.left = null;
+                stack.add(curr.left);
+            }
 
-            if(!dataArr[i].equals("$")){
+            if(!dataArr[i].equals("#")){
                 curr.right = new TreeNode(Integer.valueOf(dataArr[i]));
-                q.add(curr.right);
-            }else curr.right = null;
-
+                stack.add(curr.right);
+            }
         }
-        
+
         return root;
     }
 }
