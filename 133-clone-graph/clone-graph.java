@@ -22,6 +22,9 @@ class Solution {
     Map<Node, Node> map = new HashMap<>();
     public Node cloneGraph(Node node) {
 
+        if(node == null) return null;
+        if(node.neighbors.size() < 1) return new Node(node.val);
+
         return dfs(node);
     }
 
