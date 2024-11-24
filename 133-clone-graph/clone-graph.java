@@ -19,16 +19,17 @@ class Node {
 */
 
 class Solution {
-    Map<Node, Node> map = new HashMap<>();
     public Node cloneGraph(Node node) {
 
         if(node == null) return null;
         if(node.neighbors.size() < 1) return new Node(node.val);
 
-        return dfs(node);
+        Map<Node, Node> map = new HashMap<>();
+
+        return dfs(node, map);
     }
 
-    private Node dfs(Node node){
+    private Node dfs(Node node, Map<Node, Node> map){
         if(node == null) return null;
 
         if(map.containsKey(node)) return map.get(node);
@@ -38,7 +39,7 @@ class Solution {
 
         for(Node nei : node.neighbors){
 
-            newNode.neighbors.add(dfs(nei));
+            newNode.neighbors.add(dfs(nei, map));
         }
 
         return newNode;
