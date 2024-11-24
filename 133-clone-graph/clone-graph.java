@@ -30,7 +30,6 @@ class Solution {
     }
 
     private Node dfs(Node node, Map<Node, Node> map){
-        if(node == null) return null;
 
         if(map.containsKey(node)) return map.get(node);
 
