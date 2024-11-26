@@ -40,9 +40,9 @@ class Solution {
                     }
                 
                 }
-                if(freshOrgs == 0) return time;
 
             }
+            if(freshOrgs == 0) return time;
         }
 
         return freshOrgs==0?time:-1;
