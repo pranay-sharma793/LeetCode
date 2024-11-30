@@ -1,4 +1,10 @@
-class Solution {
+/**
+This is the union disjoint set appraoch with tracking parent and rank for edge node and updating it whenever we come acrosa connection.
+Time: O(N)
+Space: O(N)
+ */
+
+class SolutionOld {
     int[] par;
     int[] rank;
     public int findCircleNum(int[][] isConnected) {
@@ -54,3 +60,35 @@ class Solution {
         return res;
     }
 }
+
+class Solution{
+    public int findCircleNum(int[][] isConnected){
+
+        int n = isConnected.length;
+        boolean visited[] = new boolean[n];
+
+        int circle =0;
+
+        for(int i=0; i<n; i++){
+            if(!visited[i]){
+                circle++;
+                dfs(isConnected, visited, i);
+            }
+        }
+
+        return circle;
+    }
+
+    private void dfs(int[][] isConnected, boolean[] visited, int i){
+
+        visited[i] = true;
+        for(int k=0; k<isConnected[i].length; k++){
+            if(!visited[k] && isConnected[i][k] == 1){
+                dfs(isConnected, visited, k);
+            }
+        }
+
+        return;
+    }
+}
+
