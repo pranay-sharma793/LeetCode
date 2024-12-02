@@ -1,8 +1,14 @@
+/**
+Time complexity: 
+O(ElogV)
+Space complexity: 
+O(V+E)
+ */
 class Solution {
     public int networkDelayTime(int[][] times, int n, int k) {
 
-        Map<Integer, List<int[]>> map = new HashMap<>();
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> Integer.compare(a[0], b[0]));
+        Map<Integer, List<int[]>> map = new HashMap<>(); //map to store all the possible nodes and its weights
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> Integer.compare(a[0], b[0])); //min heap
 
         for(int[] time : times){
             int from = time[0];
