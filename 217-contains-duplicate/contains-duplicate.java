@@ -1,17 +1,16 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
 
-        // HashSet<> gives a slight better run time than Set<>
-        HashSet<Integer> hr = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
 
-        for (int n : nums) {
-            if (hr.contains(n))
+        for(int num : nums){
+            if(set.contains(num)){
                 return true;
+            }
 
-            hr.add(n);
+            set.add(num);
         }
 
         return false;
     }
-
 }
