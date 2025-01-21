@@ -4,7 +4,7 @@ class Solution {
         int[] sArr = getFreq(s);
         int[] tArr = getFreq(t);
 
-        return Arrays.compare(sArr, tArr)==0;
+        return Arrays.equals(sArr, tArr);
 
     }
 
